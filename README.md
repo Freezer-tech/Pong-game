@@ -14,7 +14,7 @@ You need SDL2 libraries and Windows. I don't know if it works on linux because T
 
 compile by using
 
-gcc -o pong2 pong2.c -I"C:\percorso\verso\SDL2\include" -L"C:\percorso\verso\SDL2\lib" -lmingw32 -lSDL2main -lSDL2 -lSDL2_ttf -lSDL2_gfx
+gcc -o pong2 pong2.c -I/path/to/your/includes -L/path/to/your/libs -lmingw32 -lSDL2main -lSDL2 -lSDL2_ttf -lSDL2_gfx -mwindows
 
 ## Example
 

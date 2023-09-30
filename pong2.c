@@ -302,17 +302,29 @@ void input() {
 void resetBall() {
     ball.x = SCREEN_WIDTH / 2 - BALL_SIZE / 2;
     ball.y = SCREEN_HEIGHT / 2 - BALL_SIZE / 2;
+<<<<<<< HEAD
     // Imposta la velocità iniziale della palla (puoi personalizzare questa parte)
     ballSpeedX = -1;  // Direzione iniziale
     ballSpeedY = -1;  // Direzione iniziale
+=======
+    // Set the initial ball speed (you can customize this part)
+    ballSpeedX = -1;  // Initial direction
+    ballSpeedY = -1;  // Initial direction
+>>>>>>> 1916783eebfd838f126462bdffffb37e74e133c6
 }
 
 void logic() {
     // Update paddle1 position based on user input
     paddle1.y += paddleSpeed;
+<<<<<<< HEAD
     // Verifica se il paddle1 ha raggiunto o superato la scoreLine
     if (paddle1.y < scoreLine.y + scoreLine.h) {  
         paddle1.y = scoreLine.y + scoreLine.h;  // Imposta la posizione del paddle1 appena sopra la scoreLine
+=======
+    // Checks whether paddle1 has reached or exceeded the scoreLine
+    if (paddle1.y < scoreLine.y + scoreLine.h) {  
+        paddle1.y = scoreLine.y + scoreLine.h;  // Set the position of paddle1 just above the scoreLine
+>>>>>>> 1916783eebfd838f126462bdffffb37e74e133c6
     }
     if (paddle1.y < 0) { paddle1.y = 0; }
     if (paddle1.y > SCREEN_HEIGHT - paddle1.h) { paddle1.y = SCREEN_HEIGHT - paddle1.h; }
@@ -321,9 +333,15 @@ void logic() {
     if (gameMode == 1) {
     // In Player vs Player mode, update paddle2 position based on user input
         paddle2.y += paddle2Speed;
+<<<<<<< HEAD
     // Verifica se il paddle2 ha raggiunto o superato la scoreLine
     if (paddle2.y < scoreLine.y + scoreLine.h) {  
         paddle2.y = scoreLine.y + scoreLine.h;  // Imposta la posizione del paddle2 appena sopra la scoreLine
+=======
+    // Check whether paddle2 has reached or exceeded the scoreLine
+    if (paddle2.y < scoreLine.y + scoreLine.h) {  
+        paddle2.y = scoreLine.y + scoreLine.h;  // Set the position of paddle2 just above the scoreLine
+>>>>>>> 1916783eebfd838f126462bdffffb37e74e133c6
     }
     if (paddle2.y < 0) { paddle2.y = 0; }
     if (paddle2.y > SCREEN_HEIGHT - paddle2.h) { paddle2.y = SCREEN_HEIGHT - paddle2.h; }
@@ -399,6 +417,7 @@ void logic() {
         }
     resetBall(); // Reset the ball to the center
     }
+<<<<<<< HEAD
     // La palla ha colpito il bordo superiore o inferiore, cambia la direzione verticale
     else if (ball.y < 0 || ball.y > SCREEN_HEIGHT - BALL_SIZE) { ballSpeedY *= -1; } 
     // La palla ha colpito il paddle1, cambia la direzione orizzontale
@@ -408,6 +427,17 @@ void logic() {
     else if (ball.x < paddle2.x + paddle2.w && ball.x + BALL_SIZE > paddle2.x &&
         ball.y < paddle2.y + paddle2.h && BALL_SIZE + ball.y > paddle2.y) {ballSpeedX *= -1;  } 
     // La palla ha colpito la scoreLine, cambia la direzione verticale
+=======
+    // The ball hit the top or bottom edge, change the vertical direction
+    else if (ball.y < 0 || ball.y > SCREEN_HEIGHT - BALL_SIZE) { ballSpeedY *= -1; } 
+    // The ball hit the paddle1, change the horizontal direction
+    else if (ball.x < paddle1.x + paddle1.w && ball.x + BALL_SIZE > paddle1.x &&
+        ball.y < paddle1.y + paddle1.h && BALL_SIZE + ball.y > paddle1.y) {ballSpeedX *= -1; } 
+    // The ball hit the paddle2, change the horizontal direction
+    else if (ball.x < paddle2.x + paddle2.w && ball.x + BALL_SIZE > paddle2.x &&
+        ball.y < paddle2.y + paddle2.h && BALL_SIZE + ball.y > paddle2.y) {ballSpeedX *= -1;  } 
+    // The ball hit the scoreLine, change the vertical direction
+>>>>>>> 1916783eebfd838f126462bdffffb37e74e133c6
     else if (ball.y < scoreLine.y + scoreLine.h && ball.y + BALL_SIZE > scoreLine.y) { ballSpeedY *= -1; } 
 }
 
@@ -426,7 +456,11 @@ int main(int argc, char* args[]) {
     setup();
     resetBall();
     showStartScreen();
+<<<<<<< HEAD
     // Aggiungi questa direttiva per specificare il sottosistema Windows solo quando è necessario
+=======
+    // Check Windows subsystem only when necessary
+>>>>>>> 1916783eebfd838f126462bdffffb37e74e133c6
     #ifdef _WIN32
     FreeConsole();
     #endif
@@ -443,9 +477,17 @@ int main(int argc, char* args[]) {
     return 0;
 }
 
+<<<<<<< HEAD
 // Aggiungi questa direttiva per specificare il sottosistema Windows solo quando è necessario
+=======
+// Check Windows subsystem only when necessary
+>>>>>>> 1916783eebfd838f126462bdffffb37e74e133c6
 #ifdef _WIN32
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow) {
     return main(__argc, __argv);
 }
+<<<<<<< HEAD
 #endif
+=======
+#endif
+>>>>>>> 1916783eebfd838f126462bdffffb37e74e133c6

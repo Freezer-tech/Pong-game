@@ -173,67 +173,7 @@ void draw() {
             SDL_RenderDrawPoint(renderer, centerX + x, centerY + y);
         }
     }
-    /*
-    // Draw "Player 1" and "Player 2" text based on gameMode
-    if (gameMode == 1) {
-        // Player vs Player mode, show both players
-        SDL_Color textColor = {0, 0, 0, 255};
-        SDL_Surface* textSurface1 = TTF_RenderText_Solid(font, "Player 1", textColor);
-        SDL_Surface* textSurface2 = TTF_RenderText_Solid(font, "Player 2", textColor);
-        SDL_Surface* textSurface3 = TTF_RenderText_Solid(font, "Score", textColor);
-        SDL_Texture* textTexture1 = SDL_CreateTextureFromSurface(renderer, textSurface1);
-        SDL_Texture* textTexture2 = SDL_CreateTextureFromSurface(renderer, textSurface2);
-        SDL_Texture* textTexture3 = SDL_CreateTextureFromSurface(renderer, textSurface3);
-        SDL_Rect textRect1;
-        SDL_Rect textRect2;
-        SDL_Rect textRect3;
-        textRect1.x = 10;  // Posizione X per Player 1
-        textRect1.y = 0;   // Posizione Y per Player 1
-        textRect1.w = textSurface1->w;
-        textRect1.h = textSurface1->h;
-        textRect2.x = 550;  // Posizione X per Player 2
-        textRect2.y = 0;    // Posizione Y per Player 2
-        textRect2.w = textSurface2->w;
-        textRect2.h = textSurface2->h;
-        textRect3.x = 300;  // Posizione X di Score
-        textRect3.y = 0;   // Posizione Y di Score
-        textRect3.w = textSurface3->w;
-        textRect3.h = textSurface3->h;
-
-        SDL_RenderCopy(renderer, textTexture1, NULL, &textRect1);
-        SDL_RenderCopy(renderer, textTexture2, NULL, &textRect2);
-        SDL_RenderCopy(renderer, textTexture3, NULL, &textRect3);
-    } 
-    else if (gameMode == 2) {
-        // Player vs CPU mode, show Player 1 and CPU
-        SDL_Color textColor = {0, 0, 0, 255};
-        SDL_Surface* textSurface1 = TTF_RenderText_Solid(font, "Player 1", textColor);
-        SDL_Surface* textSurface2 = TTF_RenderText_Solid(font, "CPU", textColor);
-        SDL_Surface* textSurface3 = TTF_RenderText_Solid(font, "Score", textColor);
-        SDL_Texture* textTexture1 = SDL_CreateTextureFromSurface(renderer, textSurface1);
-        SDL_Texture* textTexture2 = SDL_CreateTextureFromSurface(renderer, textSurface2);
-        SDL_Texture* textTexture3 = SDL_CreateTextureFromSurface(renderer, textSurface3);
-        SDL_Rect textRect1;
-        SDL_Rect textRect2;
-        SDL_Rect textRect3;
-        textRect1.x = 10;  // Posizione X per Player 1
-        textRect1.y = 0;   // Posizione Y per Player 1
-        textRect1.w = textSurface1->w;
-        textRect1.h = textSurface1->h;
-        textRect2.x = 550;  // Posizione X per CPU
-        textRect2.y = 0;    // Posizione Y per CPU
-        textRect2.w = textSurface2->w;
-        textRect2.h = textSurface2->h;
-        textRect3.x = 300;  // Posizione X di Score
-        textRect3.y = 0;   // Posizione Y di Score
-        textRect3.w = textSurface3->w;
-        textRect3.h = textSurface3->h;
-
-        SDL_RenderCopy(renderer, textTexture1, NULL, &textRect1);
-        SDL_RenderCopy(renderer, textTexture2, NULL, &textRect2);
-        SDL_RenderCopy(renderer, textTexture3, NULL, &textRect3);
-}
-*/
+    
     // Draw the score directly
     SDL_Color textColor = {0, 0, 0, 255};
     SDL_Surface* scoreSurface = NULL;
@@ -302,29 +242,17 @@ void input() {
 void resetBall() {
     ball.x = SCREEN_WIDTH / 2 - BALL_SIZE / 2;
     ball.y = SCREEN_HEIGHT / 2 - BALL_SIZE / 2;
-<<<<<<< HEAD
-    // Imposta la velocità iniziale della palla (puoi personalizzare questa parte)
-    ballSpeedX = -1;  // Direzione iniziale
-    ballSpeedY = -1;  // Direzione iniziale
-=======
     // Set the initial ball speed (you can customize this part)
     ballSpeedX = -1;  // Initial direction
     ballSpeedY = -1;  // Initial direction
->>>>>>> 1916783eebfd838f126462bdffffb37e74e133c6
 }
 
 void logic() {
     // Update paddle1 position based on user input
     paddle1.y += paddleSpeed;
-<<<<<<< HEAD
-    // Verifica se il paddle1 ha raggiunto o superato la scoreLine
-    if (paddle1.y < scoreLine.y + scoreLine.h) {  
-        paddle1.y = scoreLine.y + scoreLine.h;  // Imposta la posizione del paddle1 appena sopra la scoreLine
-=======
     // Checks whether paddle1 has reached or exceeded the scoreLine
     if (paddle1.y < scoreLine.y + scoreLine.h) {  
         paddle1.y = scoreLine.y + scoreLine.h;  // Set the position of paddle1 just above the scoreLine
->>>>>>> 1916783eebfd838f126462bdffffb37e74e133c6
     }
     if (paddle1.y < 0) { paddle1.y = 0; }
     if (paddle1.y > SCREEN_HEIGHT - paddle1.h) { paddle1.y = SCREEN_HEIGHT - paddle1.h; }
@@ -333,15 +261,9 @@ void logic() {
     if (gameMode == 1) {
     // In Player vs Player mode, update paddle2 position based on user input
         paddle2.y += paddle2Speed;
-<<<<<<< HEAD
-    // Verifica se il paddle2 ha raggiunto o superato la scoreLine
-    if (paddle2.y < scoreLine.y + scoreLine.h) {  
-        paddle2.y = scoreLine.y + scoreLine.h;  // Imposta la posizione del paddle2 appena sopra la scoreLine
-=======
     // Check whether paddle2 has reached or exceeded the scoreLine
     if (paddle2.y < scoreLine.y + scoreLine.h) {  
         paddle2.y = scoreLine.y + scoreLine.h;  // Set the position of paddle2 just above the scoreLine
->>>>>>> 1916783eebfd838f126462bdffffb37e74e133c6
     }
     if (paddle2.y < 0) { paddle2.y = 0; }
     if (paddle2.y > SCREEN_HEIGHT - paddle2.h) { paddle2.y = SCREEN_HEIGHT - paddle2.h; }
@@ -351,47 +273,8 @@ void logic() {
     else if (ball.y > paddle2.y + paddle2.h) { paddle2.y += 2; }
 }
 
-    /*
-    // Update paddle1 position based on user input
-    paddle1.y += paddleSpeed;
-    if(paddle1.y < 0) { paddle1.y = 0; }
-    if(paddle1.y > SCREEN_HEIGHT - paddle1.h) { paddle1.y = SCREEN_HEIGHT - paddle1.h; }
-
-    // Update paddle2 position based on user input or AI
-    if(gameMode == 1) {
-        // In Player vs Player mode, update paddle2 position based on user input
-        paddle2.y += paddle2Speed;
-        if(paddle2.y < 0) { paddle2.y = 0; }
-        if(paddle2.y > SCREEN_HEIGHT - paddle2.h) { paddle2.y = SCREEN_HEIGHT - paddle2.h; }
-    } else if(gameMode == 2) {
-        // In Player vs PC mode, move the computer's paddle towards the ball
-        if(ball.y < paddle2.y) { paddle2.y -= 2; }
-        else if(ball.y > paddle2.y + paddle2.h) { paddle2.y += 2; }
-    }
-    */
-
     // Update ball position
     ball.x += ballSpeedX; ball.y += ballSpeedY;
-    
-    /*
-    // If the ball hits the left edge of the screen, end the game
-    if(ball.x < 0) { gameOver = 1; return; }
-    if(ball.x > SCREEN_WIDTH - BALL_SIZE) { gameOver = 1; }
-
-    // If the ball hits the top or bottom edge of the screen, reverse its direction
-    if(ball.y < 0 || ball.y > SCREEN_HEIGHT - BALL_SIZE) { ballSpeedY *= -1; }
-
-    // If the ball hits a paddle, reverse its direction
-    if((ball.x < paddle1.x + paddle1.w && 
-        ball.x + BALL_SIZE > paddle1.x && 
-        ball.y < paddle1.y + paddle1.h && 
-        BALL_SIZE + ball.y > paddle1.y) ||
-       (ball.x < paddle2.x + paddle2.w && 
-        ball.x + BALL_SIZE > paddle2.x && 
-        ball.y < paddle2.y + paddle2.h && 
-        BALL_SIZE + ball.y > paddle2.y)) {
-        ballSpeedX *= -1;
-    */
 
     // Check if the ball hits the left edge of the screen
     if (ball.x < 0) {
@@ -417,17 +300,6 @@ void logic() {
         }
     resetBall(); // Reset the ball to the center
     }
-<<<<<<< HEAD
-    // La palla ha colpito il bordo superiore o inferiore, cambia la direzione verticale
-    else if (ball.y < 0 || ball.y > SCREEN_HEIGHT - BALL_SIZE) { ballSpeedY *= -1; } 
-    // La palla ha colpito il paddle1, cambia la direzione orizzontale
-    else if (ball.x < paddle1.x + paddle1.w && ball.x + BALL_SIZE > paddle1.x &&
-        ball.y < paddle1.y + paddle1.h && BALL_SIZE + ball.y > paddle1.y) {ballSpeedX *= -1; } 
-    // La palla ha colpito il paddle2, cambia la direzione orizzontale
-    else if (ball.x < paddle2.x + paddle2.w && ball.x + BALL_SIZE > paddle2.x &&
-        ball.y < paddle2.y + paddle2.h && BALL_SIZE + ball.y > paddle2.y) {ballSpeedX *= -1;  } 
-    // La palla ha colpito la scoreLine, cambia la direzione verticale
-=======
     // The ball hit the top or bottom edge, change the vertical direction
     else if (ball.y < 0 || ball.y > SCREEN_HEIGHT - BALL_SIZE) { ballSpeedY *= -1; } 
     // The ball hit the paddle1, change the horizontal direction
@@ -437,7 +309,6 @@ void logic() {
     else if (ball.x < paddle2.x + paddle2.w && ball.x + BALL_SIZE > paddle2.x &&
         ball.y < paddle2.y + paddle2.h && BALL_SIZE + ball.y > paddle2.y) {ballSpeedX *= -1;  } 
     // The ball hit the scoreLine, change the vertical direction
->>>>>>> 1916783eebfd838f126462bdffffb37e74e133c6
     else if (ball.y < scoreLine.y + scoreLine.h && ball.y + BALL_SIZE > scoreLine.y) { ballSpeedY *= -1; } 
 }
 
@@ -456,11 +327,7 @@ int main(int argc, char* args[]) {
     setup();
     resetBall();
     showStartScreen();
-<<<<<<< HEAD
-    // Aggiungi questa direttiva per specificare il sottosistema Windows solo quando è necessario
-=======
     // Check Windows subsystem only when necessary
->>>>>>> 1916783eebfd838f126462bdffffb37e74e133c6
     #ifdef _WIN32
     FreeConsole();
     #endif
@@ -477,17 +344,9 @@ int main(int argc, char* args[]) {
     return 0;
 }
 
-<<<<<<< HEAD
-// Aggiungi questa direttiva per specificare il sottosistema Windows solo quando è necessario
-=======
 // Check Windows subsystem only when necessary
->>>>>>> 1916783eebfd838f126462bdffffb37e74e133c6
 #ifdef _WIN32
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow) {
     return main(__argc, __argv);
 }
-<<<<<<< HEAD
 #endif
-=======
-#endif
->>>>>>> 1916783eebfd838f126462bdffffb37e74e133c6
